@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -13,6 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { DatalistComponent } from './common/components/datalist/datalist.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +41,15 @@ import { MovieDetailsComponent } from './pages/movies/movie-details/movie-detail
     UsersComponent,
     DatalistComponent,
     MoviesComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatMenuModule,
     MatToolbarModule,
@@ -55,7 +61,8 @@ import { MovieDetailsComponent } from './pages/movies/movie-details/movie-detail
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   entryComponents: [ MovieDetailsComponent ],

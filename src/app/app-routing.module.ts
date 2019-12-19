@@ -5,12 +5,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UsersComponent } from './pages/users/users.component';
 import { MoviesComponent } from './pages/movies/movies.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent },
   { path: 'movies', component: MoviesComponent },
+  { path: 'signup', component: SignupComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
