@@ -11,6 +11,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UsersComponent } from './pages/users/users.component';
 import { DatalistComponent } from './common/components/datalist/datalist.component';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { DatalistComponent } from './common/components/datalist/datalist.compone
     HomeComponent,
     NotFoundComponent,
     UsersComponent,
-    DatalistComponent
+    DatalistComponent,
+    MoviesComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +53,12 @@ import { DatalistComponent } from './common/components/datalist/datalist.compone
     MatTableModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatGridListModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [ MovieDetailsComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
