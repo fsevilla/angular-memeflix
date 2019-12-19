@@ -12,7 +12,6 @@ export class UserService {
 
   getUsers():Promise<any> {
     const url = environment.apiUrl + environment.apiPath + '/users';
-    // https://memflix-api.herokuapp.com/api/users
     return this.httpClient.get(url).toPromise();
   }
 

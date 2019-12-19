@@ -1,5 +1,6 @@
 .main-drawer-container {
     height: calc(100% - 128px);
+    padding-bottom: 60px;
 }
 
 mat-drawer {

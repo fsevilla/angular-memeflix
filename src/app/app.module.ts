@@ -8,6 +8,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { FooterComponent } from './common/components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UsersComponent } from './pages/users/users.component';
+import { DatalistComponent } from './common/components/datalist/datalist.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { UsersComponent } from './pages/users/users.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    UsersComponent
+    UsersComponent,
+    DatalistComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,10 @@ import { UsersComponent } from './pages/users/users.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
