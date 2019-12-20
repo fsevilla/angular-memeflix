@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   form:FormGroup;
 
+  error:boolean = false;
+
   constructor(
     private formBuilder:FormBuilder, 
     private loginService:LoginService,
@@ -51,6 +53,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleError(err) {
+    this.error = true;
     this.snackBar.open(err.error.error, 'Error', {
       duration: 2000,
       verticalPosition: 'top'

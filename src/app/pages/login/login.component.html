@@ -3,7 +3,7 @@
         <h1>Login</h1>
         <form [formGroup]="form" (submit)="submitForm()">
             <mat-form-field>
-                <input matInput type="email" placeholder="Email" formControlName="email">
+                <input name="email" matInput type="email" placeholder="Email" formControlName="email">
                 <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
                     Please enter a valid email address
                 </mat-error>
@@ -13,15 +13,15 @@
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput type="password" placeholder="Password" formControlName="password">
+                <input name="password" matInput type="password" placeholder="Password" formControlName="password">
                 <mat-error>
                     Password is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
 
-            <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+            <mat-error id="errorMessage" *ngIf="error">invalid credentials</mat-error>
 
-            <button mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
+            <button id="submit" mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
             <a routerLink="../signup">Need an account? Signup</a>
 
         </form>
