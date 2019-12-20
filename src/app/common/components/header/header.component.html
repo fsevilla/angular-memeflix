@@ -1,4 +1,5 @@
 <mat-toolbar color="primary">
     <mat-icon aria-hidden="false" aria-label="Example movie icon">movie</mat-icon> 
     <span>MemeFlix</span>
+    <a *ngIf="isLoggedIn" routerLink="logout" mat-button color="accent">Cerrar sesión</a>
 </mat-toolbar>
