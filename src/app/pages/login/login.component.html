@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-card class="mat-elevation-z8">
+        <h1>Login</h1>
+        <form [formGroup]="form" (submit)="submitForm()">
+            <mat-form-field>
+                <input matInput type="email" placeholder="Email" formControlName="email">
+                <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="form.controls.email.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" formControlName="password">
+                <mat-error>
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+
+            <button mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
+            <a routerLink="../signup">Need an account? Signup</a>
+
+        </form>
+    </mat-card>
+</div>
