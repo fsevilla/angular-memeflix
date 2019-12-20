@@ -35,6 +35,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 import { RoleDirective } from './common/directives/role.directive';
+import { CustomUppercasePipe } from './common/pipes/custom-uppercase.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { RoleDirective } from './common/directives/role.directive';
     LoginComponent,
     LogoutComponent,
     ForbiddenComponent,
-    RoleDirective
+    RoleDirective,
+    CustomUppercasePipe
   ],
   imports: [
     BrowserModule,
