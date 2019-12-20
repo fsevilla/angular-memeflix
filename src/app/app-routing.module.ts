@@ -8,15 +8,17 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { AuthGuard } from './common/guards/auth.guard';
+import { UnauthGuard } from './common/guards/unauth.guard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'movies', component: MoviesComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+  { path: 'movies', component: MoviesComponent, canActivate: [AuthGuard] },
+  { path: 'signup', component: SignupComponent, canActivate: [UnauthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [UnauthGuard] },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
 ];
 
