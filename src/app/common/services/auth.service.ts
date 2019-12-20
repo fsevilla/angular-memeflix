@@ -19,7 +19,7 @@ export class AuthService {
 
   getToken() {
     const item = localStorage.getItem(this.storageItem);
-    return item ? JSON.parse(item) : '';
+    return item ? JSON.parse(item).token : '';
   }
 
   clearToken() {
