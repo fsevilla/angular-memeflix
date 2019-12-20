@@ -34,6 +34,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
+import { RoleDirective } from './common/directives/role.directive';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
     SignupComponent,
     LoginComponent,
     LogoutComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    RoleDirective
   ],
   imports: [
     BrowserModule,
