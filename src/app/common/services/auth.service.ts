@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
 
   private storageItem:string = 'memflix-session';
+  private userItem:string = 'memflix-user';
 
   loginStatus = new BehaviorSubject<boolean>(false);
 
@@ -24,7 +25,22 @@ export class AuthService {
 
   clearToken() {
     localStorage.removeItem(this.storageItem);
+    this.clearUser();
     this.loginStatus.next(false);
+  }
+
+  saveUser(user) {
+    delete user['_id'];
+    localStorage.setItem(this.userItem, JSON.stringify(user));
+  }
+
+  getUser() {
+    const item = localStorage.getItem(this.userItem);
+    return item ? JSON.parse(item) : {};
+  }
+
+  clearUser() {
+    localStorage.removeItem(this.userItem);
   }
 
   isLoggedIn():boolean {

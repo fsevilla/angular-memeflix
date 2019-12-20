@@ -35,14 +35,26 @@ export class LoginComponent implements OnInit {
     if(this.form.valid) {
       this.loginService.login(this.form.getRawValue()).subscribe(response => {
         this.authService.saveToken(response);
-        this.router.navigate(['/']);
+        return this.loginService.getMe()
+          .then(response => {
+            this.authService.saveUser(response);
+            this.router.navigate(['/']);
+          })
+          .catch(err => {
+            this.authService.clearToken();
+            this.handleError(err);
+          });
       }, err => {
-        this.snackBar.open(err.error.error, 'Error', {
-          duration: 2000,
-          verticalPosition: 'top'
-        });
+        this.handleError(err);
       });
     }
+  }
+
+  handleError(err) {
+    this.snackBar.open(err.error.error, 'Error', {
+      duration: 2000,
+      verticalPosition: 'top'
+    });
   }
 
 }

@@ -33,6 +33,7 @@ import { MovieDetailsComponent } from './pages/movies/movie-details/movie-detail
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     MovieDetailsComponent,
     SignupComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
