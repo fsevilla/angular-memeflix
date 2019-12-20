@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,8 +13,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
 
   form:FormGroup;
+  errorMessage:string;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(
+    private formBuilder:FormBuilder, 
+    private signupService:SignupService,
+    private router:Router,
+    private snackBar:MatSnackBar
+  ) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -25,9 +35,16 @@ export class SignupComponent implements OnInit {
 
   submitForm() {
     if(this.form.valid) {
-      console.log('Form', this.form);
-    } else {
-      console.log('faltan datos');
+      this.signupService.register(this.form.getRawValue())
+        .then(() => {
+          this.router.navigate(['login']);
+        })
+        .catch(err => {
+          this.snackBar.open(err.error.error, 'Error', {
+            duration: 2000,
+            verticalPosition: 'top'
+          });
+        });
     }
   }
 
